@@ -1,8 +1,8 @@
 import Head from 'next/head'; //Component from Next.js
 
-import { Header, Banner, SmallCard } from './utils';
+import { Header, Banner, SmallCard, MediumCard } from './utils';
 
-export default function Home( { exploreData }) {
+export default function Home( { exploreData, cardsData }) {
   return (
     <div className="">
       <Head>
@@ -37,6 +37,27 @@ export default function Home( { exploreData }) {
           </div>
 
         </section>
+
+        <section>
+
+          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+
+            {cardsData?.map( ({ img, title}) => (
+
+              <MediumCard key={ img } img={ img } title={ title }/>
+
+            ))}
+            
+          </div>
+
+        </section>
+
+
+
+
+
       </main>
       
     </div>
@@ -50,10 +71,14 @@ export async function getStaticProps() {
 
   );
 
+  const cardsData = await fetch('https://links.papareact.com/zp1')
+  .then(res => res.json() );
+
   return {
     //Can return the data as props:
     props: {
-      exploreData
+      exploreData,
+      cardsData
     }
   }
 };

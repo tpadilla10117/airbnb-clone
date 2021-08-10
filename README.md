@@ -19,6 +19,7 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 ## Installations:
 
 `npm install @heroicons/react` -> install the heroicons library
+`npm install tailwind-scrollbar-hide` -> plugin for Tailwind that hides scrollbar
 
 ## How to use
 

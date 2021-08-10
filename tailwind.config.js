@@ -10,5 +10,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  //We can add additional plugins into tailwind:
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
