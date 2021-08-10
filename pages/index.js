@@ -1,6 +1,6 @@
 import Head from 'next/head'; //Component from Next.js
 
-import { Header, Banner, SmallCard, MediumCard, LargeCard } from './utils';
+import { Header, Banner, SmallCard, MediumCard, LargeCard, Footer } from './utils';
 
 export default function Home( { exploreData, cardsData }) {
   return (
@@ -62,11 +62,9 @@ export default function Home( { exploreData, cardsData }) {
 
         />
 
-
-
-
-
       </main>
+
+      <Footer />
       
     </div>
   );
