@@ -1,6 +1,6 @@
 import Head from 'next/head'; //Component from Next.js
 
-import { Header, Banner } from './utils';
+import { Header, Banner, SmallCard } from './utils';
 
 export default function Home( { exploreData }) {
   return (
@@ -24,8 +24,14 @@ export default function Home( { exploreData }) {
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
 
           {/* Pull some data from a server - API endpoints from Sonny Sangha */}
-          {exploreData?.map( (item) => (
-            <h1>{ item.location }</h1>
+          {exploreData?.map( ({img, distance, location}) => (
+            <SmallCard 
+              key={ img }
+              img={ img }
+              distance={ distance }
+              location = { location }
+            
+            />
           ) )}
 
         </section>
