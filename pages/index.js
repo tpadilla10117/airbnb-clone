@@ -1,6 +1,6 @@
 import Head from 'next/head'; //Component from Next.js
 
-import { Header, Banner, SmallCard, MediumCard } from './utils';
+import { Header, Banner, SmallCard, MediumCard, LargeCard } from './utils';
 
 export default function Home( { exploreData, cardsData }) {
   return (
@@ -53,6 +53,14 @@ export default function Home( { exploreData, cardsData }) {
           </div>
 
         </section>
+
+        <LargeCard 
+          img="https://links.papareact.com/4cj"
+          title="The Greatest Outdoors"
+          description="Wishlists curated by Airbnb."
+          buttonText="Get Inspired"
+
+        />
 
 
 
