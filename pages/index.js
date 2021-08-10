@@ -1,6 +1,6 @@
 import Head from 'next/head'; //Component from Next.js
 
-import { Header } from './utils';
+import { Header, Banner } from './utils';
 
 export default function Home() {
   return (
@@ -18,6 +18,7 @@ export default function Home() {
 
 
       {/* Banner will go here */}
+      <Banner />
       
     </div>
   )
