@@ -24,6 +24,10 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 `npm install --save react date-fns` -> install a peerDependency for React and date-range libraries
 `npm i @badrap/bar-of-progress` -> install progress bar library
 
+## Integrations:
+
+mapbox.com
+
 ## How to use
 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:

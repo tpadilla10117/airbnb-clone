@@ -1,6 +1,6 @@
 
     import { useRouter } from 'next/dist/client/router';
-    import { Header, Footer, InfoCard } from './utils.js';
+    import { Header, Footer, InfoCard, Map } from './utils.js';
     import { format } from "date-fns"; //format function from date-fns library
 
     function Search( { searchResults } ) {
@@ -56,6 +56,13 @@
                             </div>
 
                         </section>
+
+                    {/* This is where I utililize mapbox integration: */}
+                        <section /* className="hidden xl:inline-flex" */>
+                            <Map />
+                        </section>
+
+
 
                     </main>
 
