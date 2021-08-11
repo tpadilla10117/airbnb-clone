@@ -1,10 +1,13 @@
 /* Functional Component where we use mapbox: */
-    import ReactMapGL from 'react-map-gl';
+    import ReactMapGL, { Marker, Popup } from 'react-map-gl';
     import { getCenter } from 'geolib';
     import { useState } from 'react';
 
 /* We connect the style, api token from mapbox: */
     function Map( {searchResults } ) {
+
+    /*  State for location object / popup in the mapbox:*/
+        const [ selectedLocation, setSelectedLocation ] = useState({});
 
     /* I transform the search results object into the  */
     /* E.G. { latitude: 52.516272, longitude: 13.377722 } object : */
@@ -37,6 +40,38 @@
             onViewportChange={ (nextViewport) => setViewport(nextViewport) }
             /* onViewPortChange lets us move the viewport on the map: */
         >
+        {/* Where we make a Marker and Popup: */}
+            {searchResults.map( result => (
+                <div key={ result.long }>
+                    <Marker
+                        longitude={ result.long }
+                        latitude={ result.lat }
+                        offsetTop={ -10 }
+                        offsetLeft={ -20 }
+                    >
+                        <p className="cursor-pointer text-2xl animate-bounce" aria-label="push-pin" onClick={() => setSelectedLocation(result) }>
+                        📍
+                        </p>
+                    </Marker>
+
+                {/* Popup that should show if click on a Marker: */}
+                    {selectedLocation.long === result.long ? (
+                        <Popup
+                            onClose={ () => setSelectedLocation( {} )} //reset state
+                            closeOnClick={true}
+                            latitude={result.lat}
+                            longitude={result.long}
+                            
+                        >
+                            {/* Can style as a div if want */}
+                            { result.title }
+                        </Popup>
+                    ):(
+                        false
+                    )}
+
+                </div>
+            ))}
 
 
         </ReactMapGL>
