@@ -6,15 +6,6 @@
 /* We connect the style, api token from mapbox: */
     function Map( {searchResults } ) {
 
-    /* Viewport state to give the mapbox its size: */
-        const [ viewport, setViewport ] = useState({
-            width:'100%',
-            height: '100%',
-            latitude: 37.7577,
-            longitude: -122.4376,
-            zoom: 11,
-        });
-
     /* I transform the search results object into the  */
     /* E.G. { latitude: 52.516272, longitude: 13.377722 } object : */
 
@@ -23,7 +14,20 @@
             latitude: result.lat,
 
         } ));
-console.log(coordinates)
+
+    //The latitude and longitude of the center of location for coordinates
+    //E.g. go to Mexico, map centers around the new coordinates
+        const center = getCenter(coordinates);
+
+    /* Viewport state to give the mapbox its size: */
+        const [ viewport, setViewport ] = useState({
+            width:'100%',
+            height: '100%',
+            latitude: center.latitude,
+            longitude: center.longitude,
+            zoom: 11,
+        });
+        
 
     /*  We return the ReactMapGL custom component: */
         return <ReactMapGL
