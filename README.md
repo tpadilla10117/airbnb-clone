@@ -22,6 +22,7 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 `npm install tailwind-scrollbar-hide` -> plugin for Tailwind that hides scrollbar
 `npm install --save react-date-range` -> install the react-date-range library
 `npm install --save react date-fns` -> install a peerDependency for React and date-range libraries
+`npm i @badrap/bar-of-progress` -> install progress bar library
 
 ## How to use
 
