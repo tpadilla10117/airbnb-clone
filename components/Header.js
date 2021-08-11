@@ -16,6 +16,9 @@
         const [ startDate, setStartDate ] = useState( new Date() );
         const [ endDate, setEndDate ] = useState( new Date() );
 
+    /* State for number of guests inputted in the calendar, it keeps track of them: */
+        const [ noOfGuests, setNoOfGuests ] = useState(1);
+
         const selectionRange = {
             startDate: startDate,
             endDate: endDate,
@@ -27,6 +30,11 @@
         const handleSelect = (ranges) => {
             setStartDate( ranges.selection.startDate );
             setEndDate( ranges.selection.endDate );
+        };
+
+    /* This function resets the calendar input upon Cancel click: */
+        const resetInput = () => {
+            setSearchInput('');
         };
 
 
@@ -68,13 +76,38 @@
 
             {/* This let's me toggle a Calander: */}
                 {searchInput && (
-                    <div className="flex flex-col col-span-3 mx-auto">
+                    <div className="flex flex-col col-span-3 mx-auto mt-10">
                         <DateRangePicker 
                             ranges={ [ selectionRange ] }
                             minDate={ new Date() }
                             rangeColors={ ["#FD5B61"] }
                             onChange={ handleSelect }
                         />
+
+                        <div className="flex items-center border-b mb-4">
+                            <h2 className="text-2xl flex-grow font-semibold">Number of Guests</h2>
+
+                            <UsersIcon className="h-5" />
+
+                        {/* Where the input is handled for Guests: */}
+                            <input type="number" 
+                            className="w-12 pl-2 text-lg outline-none text-red-400" 
+                            value={noOfGuests}
+                            type="number"
+                            min={1}
+                            onChange={ (event ) => setNoOfGuests(event.target.value) }
+                            />
+
+                        </div>
+
+                        <div className="flex">
+
+                            <button className="flex-grow text-gray-500" onClick={resetInput}>Cancel</button>
+                            <button className="flex-grow text-red-400">Search</button>
+
+                        </div>
+
+                        
 
                     </div> 
                 )}
