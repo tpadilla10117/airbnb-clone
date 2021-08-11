@@ -1,9 +1,9 @@
 
     import { useRouter } from 'next/dist/client/router';
-    import { Header, Footer } from './utils.js';
+    import { Header, Footer, InfoCard } from './utils.js';
     import { format } from "date-fns"; //format function from date-fns library
 
-    function Search() {
+    function Search( { searchResults } ) {
 
     /* Use ES6 destructuring to grab query data from search that we can use in the component: */
         const router = useRouter();
@@ -39,6 +39,22 @@
 
                             </div>
 
+                        {/* Here I map out the images and Card for the search Query: */}
+                            <div className="flex flex-col">
+                                {searchResults.map( ({ img, location, title, description, star, price, total }) => (
+                                    <InfoCard 
+                                        key={img} //better to use an id
+                                        img={img}
+                                        location={location}
+                                        title={title}
+                                        description={description}
+                                        star={star}
+                                        price={price}
+                                        total={total}
+                                    />
+                                )) }
+                            </div>
+
                         </section>
 
                     </main>
@@ -49,3 +65,15 @@
     };
 
     export default Search;
+
+/* Take care of server-side rendering here: */
+    export async function getServerSideProps() {
+        const searchResults = await fetch("https://links.papareact.com/isz").then(res => res.json() );
+
+        return {
+            props: {
+                searchResults,
+            },
+        };
+
+    };
