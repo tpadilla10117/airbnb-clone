@@ -24,6 +24,7 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 `npm install --save react date-fns` -> install a peerDependency for React and date-range libraries
 `npm i @badrap/bar-of-progress` -> install progress bar library
 `npm install --save react-map-gl` -> custom React component library for React API, Mapbox GL JS-compatible
+`npm install geolib` -> Geolib library
 
 ## Integrations:
 
