@@ -1,0 +1,10 @@
+/* A global CSS file to create custom-tailwind utility classes: */
+
+    @tailwind components;
+
+    @layer components {
+        /* use @apply to apply the tailwind css we wrote */
+        .button {
+            @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out
+        }
+    }
